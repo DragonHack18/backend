@@ -15,7 +15,12 @@ $app->get('/api/amount', function (Request $request, Response $response) {
         $stmt = $db->query($sql);
         $moneyamount = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        echo $moneyamount[0]["money"];
+
+        $value = "error";
+        foreach ($moneyamount as $data) {
+            $value = $data->money;
+        }
+        echo $value;
     } catch (PDOException $e) {
         echo '{"error": {"text": ' . $e->getMessage() . '}}';
     }
