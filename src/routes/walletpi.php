@@ -35,10 +35,7 @@ $app->get('/api/pay/{amount}/{walletid}', function (Request $request, Response $
 
         echo json_encode('{"notice": {"Successfully added payment request"}}');
 
-        $output2 = exec('/usr/bin/python3.5 /home/pi/Desktop/hardware.py');
-        $output = shell_exec("/usr/bin/python3.5 /home/pi/Desktop/hardware.py");
-
-        echo "Output exec: $output2" . "</br>";
+        $output = shell_exec('sudo /usr/bin/python3.5 /home/pi/Desktop/hardware.py 2>&1');
         echo "Output shell exec: $output" . "</br>";
 
     } catch (PDOException $e) {
