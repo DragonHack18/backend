@@ -50,7 +50,7 @@ $app->get('/api/pay/{amount}/{walletid}', function (Request $request, Response $
 
 // Payment approved
 $app->get('/api/pay/paymentapproved', function (Request $request, Response $response) {
-    $sql = "SELECT * FROM walletpi WHERE id = 1";
+    $sql = "SELECT * FROM walletpimoney WHERE id = 1";
     try {
         $db = new db();
         $db = $db->connect();
