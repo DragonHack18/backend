@@ -65,7 +65,7 @@ $app->get('/api/pay/paymentapproved/{walletid}', function (Request $request, Res
 });
 
 $app->get('/api/approvepayment', function (Request $request, Response $response) {
-    $sql = "UPDATE `walletpimoney` SET `payment_approved` = 1 WHERE id = 1";
+    $sql = "UPDATE `walletpimoney` SET `money` = `money` - `payment_request`, `payment_approved` = 1 WHERE id = 1";
     try {
         $db = new db();
         $db = $db->connect();
