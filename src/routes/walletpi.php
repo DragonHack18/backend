@@ -49,16 +49,21 @@ $app->get('/api/pay/{amount}/{walletid}', function (Request $request, Response $
 });
 
 // Payment approved
-$app->get('/api/pay/paymentapproved/{walletid}', function (Request $request, Response $response) {
-    $walletid = $request->getAttribute('walletid');
-    $sql = "SELECT * FROM walletpi WHERE id = $walletid";
+$app->get('/api/pay/paymentapproved', function (Request $request, Response $response) {
+    $sql = "SELECT * FROM walletpi WHERE id = 1";
     try {
         $db = new db();
         $db = $db->connect();
         $stmt = $db->query($sql);
         $customer = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($customer);
+
+        $value = "error";
+        foreach ($customer as $data) {
+            $value = $data->payment_approved;
+        }
+        echo $value;
+
     } catch (PDOException $e) {
         echo '{"error": {"text": ' . $e->getMessage() . '}}';
     }
