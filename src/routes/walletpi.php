@@ -26,7 +26,7 @@ $app->get('/api/pay/{amount}/{walletid}', function (Request $request, Response $
     $walletid = $request->getAttribute('walletid');
     $amount = $request->getAttribute('amount');
 
-    $sql = "UPDATE `walletpimoney` SET `payment_request`=$amount WHERE id = $walletid";
+    $sql = "UPDATE `walletpimoney` SET `payment_request`=$amount, `payment_approved` = 0 WHERE id = $walletid";
     try {
         $db = new db();
         $db = $db->connect();
@@ -50,6 +50,20 @@ $app->get('/api/pay/paymentapproved/{walletid}', function (Request $request, Res
         $customer = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         echo json_encode($customer);
+    } catch (PDOException $e) {
+        echo '{"error": {"text": ' . $e->getMessage() . '}}';
+    }
+});
+
+$app->get('/api/approvepayment', function (Request $request, Response $response) {
+    $sql = "UPDATE `walletpimoney` SET `payment_approved` = 1 WHERE id = 1";
+    try {
+        $db = new db();
+        $db = $db->connect();
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        echo json_encode('{"notice": {"Successfully approved payment"}}');
     } catch (PDOException $e) {
         echo '{"error": {"text": ' . $e->getMessage() . '}}';
     }

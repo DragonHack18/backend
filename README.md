@@ -35,4 +35,14 @@ Response
 
     TODO
     
+### Approve payment
+GET
+
+    http:193.2.178.88/dragonhack/public/index.php/api/approvepayment
+    localhost/dragonhack/public/index.php/api/approvepayment 
+Response
+
+    TODO
+            
+    
         
