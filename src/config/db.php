@@ -4,9 +4,9 @@ class db
 {
     // Properties
     private $dbhost = "localhost";
-    private $dbuser = "root";
-    private $dbpass = "";
-    private $dbname = "slimapp";
+    private $dbuser = "phpmyadmin";
+    private $dbpass = "jobina.1122";
+    private $dbname = "phpmyadmin";
 
     // Connect
     public function connect()
