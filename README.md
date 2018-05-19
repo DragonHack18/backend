@@ -5,7 +5,8 @@
 ### Bank amount
 GET
 
-    http:193.2.178.88/walletWall/public/index.php/api/amount  
+    http:193.2.178.88/dragonhack/public/index.php/api/amount  
+    localhost/dragonhack/public/index.php/api/amount
 Response
 
     [
@@ -19,8 +20,8 @@ Response
 ### Request payment
 GET
     
-    http:193.2.178.88/walletWall/public/index.php/api/pay/{amount}/{walletid}
-    
+    http:193.2.178.88/dragonhack/public/index.php/api/pay/{amount}/{walletid}
+    localhost/dragonhack/public/index.php/api/pay/{amount}/{walletid}
 Response
 
     TODO      
@@ -28,8 +29,8 @@ Response
 ### Is payment approved
 GET
 
-    http:193.2.178.88/walletWall/public/index.php/api/paymentapproved
-     
+    http:193.2.178.88/dragonhack/public/index.php/api/paymentapproved
+    localhost/dragonhack/public/index.php/api/paymentapproved 
 Response
 
     TODO

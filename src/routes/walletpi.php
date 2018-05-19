@@ -30,10 +30,10 @@ $app->get('/api/pay/{amount}/{walletid}', function (Request $request, Response $
     try {
         $db = new db();
         $db = $db->connect();
-        $stmt = $db->query($sql);
-        $customer = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($customer);
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        echo json_encode('{"notice": {"Successfully added payment request"}}');
     } catch (PDOException $e) {
         echo '{"error": {"text": ' . $e->getMessage() . '}}';
     }
