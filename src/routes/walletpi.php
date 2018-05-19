@@ -35,7 +35,7 @@ $app->get('/api/pay/{amount}/{walletid}', function (Request $request, Response $
 
         echo json_encode('{"notice": {"Successfully added payment request"}}');
 
-        exec('/usr/bin/python2.7 /home/pi/Desktop/hardware.py');
+        exec('/usr/bin/python3.5 /home/pi/Desktop/hardware.py');
     } catch (PDOException $e) {
         echo '{"error": {"text": ' . $e->getMessage() . '}}';
     }
