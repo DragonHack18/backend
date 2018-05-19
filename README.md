@@ -5,15 +5,21 @@
 ### Bank amount
 GET
 
-    http:193.2.178.88/walletWall/public/api/bankamount  
+    http:193.2.178.88/walletWall/public/index.php/api/amount  
 Response
 
-    TODO
+    [
+        {
+            id: "1",
+            money: "500",
+            payment_request: "20"
+        }
+    ]
   
 ### Request payment
 GET
     
-    http:193.2.178.88/walletWall/public/api/pay/{amount}/{walletid}
+    http:193.2.178.88/walletWall/public/index.php/api/pay/{amount}/{walletid}
     
 Response
 
@@ -22,7 +28,7 @@ Response
 ### Is payment approved
 GET
 
-    http:193.2.178.88/walletWall/public/api/paymentapproved
+    http:193.2.178.88/walletWall/public/index.php/api/paymentapproved
      
 Response
 
